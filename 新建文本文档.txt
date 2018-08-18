@@ -49,6 +49,12 @@ new - 建立项目 - 生成https://github.com/Promise0228/mygit.git
 git remote add origin github.com/Promise0228/mygit.git(命令)
 
 
+第一次发布项目(本地-远程)
+git add .    本地发送暂存区
+git commit -m "注释内容"    暂存区-本地分支(默认master)
+git push -u origin master
+
+
 
 
 
