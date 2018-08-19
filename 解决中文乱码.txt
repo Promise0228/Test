@@ -1,0 +1,40 @@
+ASCII:7个比特(最多128个字符)
+ISO8859-1:8个比特(最多256个字符)
+GB2312:双字节编码(包含7445个字符:拼音3755,部首:3008)
+GBK:(21886:汉字:21003个;图形符号:883个)兼容GB2312编码
+GB18030:(GB2312+GBK)解决生,难,偏字的问题(少数民族)
+BIG5:(大五码)双字节编码(繁体字)
+Unicode:(几十种文字整合在一个字符集中的编码格式)www.unicode.org(5.0版本)
+UTF-8:变长的编码方式(Unicode常用的字符编码转换方法)
+Codepage:Unicode映射关系(不兼容中文与外国语言)
+
+
+Jsp显示乱码:
+<%@ pageEncoding="ISO8859-1" %>--<%@ pageEncoding="UTF-8" %>
+设置默认:window-preferemces-MyEclipse+file and Editers- JSP 修改Encoding
+
+
+Servlet页面乱码:
+response.setContentType("text/html;charset=utf-8")
+
+
+POST表单提交:
+接受参数前加request.setCharcterEncoding("UTF-8")
+或过滤器
+
+
+URI方式传参:
+<Connector port="8080" protocol="HTTP/1.1"
+     maxThreads="150" connectionTimeout="20000"
+     redirectPort="8443" URIEncoding="UTF-8"/>
+配置:找到tomcat-conf-server-connector:加 URIEncoding="UTF-8"
+
+
+Properties文件乱码:Edit
+下载后减压后复制到eclipse安装目录
+
+
+
+
+
+
