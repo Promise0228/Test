@@ -1,0 +1,85 @@
+1maven的作用:
+  a.管理jar:
+    i.增加第三方Jar(commons-fileupload.jar  commons-io.jar)
+    ii.jar包之间的依赖关系(commons-fileupload.jar  自动关联下载所有依赖的Jar并且自动关联关系)
+  
+  将项目拆分若干个模块
+  
+maven概念:
+  是一个基于Java平台,自动化构建工具
+  make-ant-maven-gradle
+
+清理  删除编译结果 为重新编译准备
+编译  java->class
+测试  单元测试 项目中的关键点进行测试 测试代码-测试开发代码
+报告  将测试结果显示
+打包  将项目中包含的多个文件压缩成一个文件  用于安装部署
+安装  将打成的包放到本地仓库
+部署  将打成的包放到服务器准备运行
+  将java.js.jsp.等各个文件筛选.组装成一个.可以运行的文件
+  eclipse中部署到Tomcat可以运行
+  eclipse复制到Tomcat不能运行
+  
+  eclipse中项目部署是会生成部署文件(class文件)  
+  打war包
+
+  自动化构建工具maven:将原材料(java,js,css..)->产品(可发布)
+  本地仓库->((本公司)私服nexus)-> 中央仓库-> 中央仓库映像(对中央仓库的分流) (私服nexus)
+
+1.下载maven
+ a.配置JAVA_HOME
+ b.配置MAVEN_HOME  F:\apache-maven-3.5.4-bin\apache-maven-3.5.4
+ c.配置path
+       $MAVEN_HOME$/bin
+ d.验证
+       mvn -v
+ e.配置本地仓库maven目录/conf/settings.xml
+       默认C:\Users\Administrator/.m2/repository
+       配置本地仓库F:\mavrep
+2使用maven
+ 约定 优于 配置
+ 硬编码方式:job.setPath("d:\\abc")
+ 配置方式:
+          job
+  conf.xml    <path>d:\\abc<path>
+ 约定:老地方见(使用默认值)
+          job
+ maven约定的目录结构
+ src
+   --mian       :执行代码
+     --java     :Java代码
+     --resources:配置文件
+   --test       :测试代码
+     --java 
+     --resources
+ pom.xml    :项目对象模型(src同级)
+
+  执行代码main
+  测试代码test
+
+ mvn compile编译(Test )
+
+
+maven常见命令
+ mvn compile编译(main )(第一次下载基础jar包)
+ mvn test(test)(下载测试基础环境)
+ mvn packsge(第一次下载打包基础环境)
+ mvn install将开放的模块放入本地仓库,供其他项目使用(放入的位置GAV定位)
+ mvn clean(删除target目录)删除编译文件目录
+
+依赖:(update)
+<dependencys><dependencys>
+依赖排除
+a.jar->b.jar
+引入a.jar自动引入b.jar
+
+
+在eclipse创建maven项目
+配置maven:preferences-myeclipse-maven-installations
+配置仓库:preferences-myeclipse-maven-user settings
+ 
+maven生命周期
+resource->compile->test->package->install
+1,clean清理(pre-clean clean post-clean)
+2,default 默认
+3,site 站点()
